@@ -2,6 +2,10 @@
 
 Azure Functions supports WSGI and ASGI-compatible frameworks with HTTP-triggered Python functions. This can be helpful if you are familiar with a particular framework, or if you have existing code you would like to reuse to create the Function app. The following is an example of creating an Azure Function app using FastAPI for a candy store API.
 
+## Design
+
+See [the design document](DESIGN.md) for the object-oriented design that led to this API.
+
 ## Prerequisites
 
 You can develop and deploy a function app using either Visual Studio Code or the Azure CLI. Make sure you have the required prerequisites for your preferred environment:
