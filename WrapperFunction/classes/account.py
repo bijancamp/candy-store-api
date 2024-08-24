@@ -1,12 +1,20 @@
 import uuid
 
+from enum import Enum
+
 import bcrypt
 
-from account_type import AccountType
+from account import AccountType
 from address import Address
 from cart import Cart
-from order import Order
+from order import Order, OrderStatus
 from payment_card import PaymentCard
+
+
+class AccountType(Enum):
+    ADMIN = 1
+    MEMBER = 2
+    GUEST = 3
 
 
 class Account:
@@ -34,7 +42,8 @@ class Account:
             raise ValueError("No linked payment card")
 
         # Eventually call _submitPayment...
-        pass
+
+        return OrderStatus.SHIPPED
 
     def _submitPayment(self) -> None:
         pass

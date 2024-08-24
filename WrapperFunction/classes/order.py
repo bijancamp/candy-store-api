@@ -2,9 +2,17 @@ import datetime
 import uuid
 
 from decimal import Decimal
+from enum import Enum
 
-from order_status import OrderStatus
+from order import OrderStatus
 from product import ProductItem
+
+
+class OrderStatus(Enum):
+    ORDERED = 1
+    SHIPPED = 2
+    DELIVERED = 3
+    CANCELED = 4
 
 
 class Order:

@@ -1,8 +1,15 @@
 import uuid
 
+from enum import Enum
+
 from account import Account
-from notification_type import NotificationType
+from notification import NotificationType
 from order import Order
+
+
+class NotificationType(Enum):
+    ORDERED = 1
+    SHIPPED = 2
 
 
 class Notification:
