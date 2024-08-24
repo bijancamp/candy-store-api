@@ -1,0 +1,57 @@
+@startuml activity-admin
+!theme cerulean
+
+title Activity Diagram (Admin)
+
+
+start
+
+:Log in;
+
+repeat
+    switch ()
+    case ()
+        :View catalog;
+        repeat
+            switch ()
+            case ()
+                :Add product;
+            case ()
+                :View product details;
+                switch ()
+                case ()
+                    :Update/remove product;
+                case ()
+                    :Add/update/remove item;
+                endswitch
+            endswitch
+        repeat while
+    case ()
+        :View orders;
+        repeat
+        :View order details;
+        switch (Cancel?)
+        case (Yes)
+        :Cancel order;
+        case (No)
+        endswitch
+        repeat while
+    case ()
+        :View accounts;
+        repeat
+        :View account details;
+        switch (Delete?)
+        case (Yes)
+        :Delete account;
+        case (No)
+        endswitch
+        repeat while
+    endswitch
+    label end
+repeat while
+
+:Log out;
+
+stop
+
+@enduml

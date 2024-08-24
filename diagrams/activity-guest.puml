@@ -1,0 +1,22 @@
+@startuml activity-guest
+!theme cerulean
+
+title Activity Diagram (Guest)
+
+
+start
+
+switch ()
+case ()
+    repeat
+        :Browse catalog;
+        :View item details;
+    repeat while ()
+case ()
+    :Register account;
+    :Log in as member;
+endswitch
+
+stop
+
+@enduml

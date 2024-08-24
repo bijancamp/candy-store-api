@@ -1,0 +1,72 @@
+@startuml use-case
+!theme cerulean
+
+skinparam actorStyle hollow
+
+title Use Case Diagram
+
+left to right direction
+
+
+''''''''''''''
+'' Actors
+
+:Admin: as admin #MidnightBlue
+:Member: as member #Green
+:Guest: as guest #DarkOrange
+:System: as system #DimGrey
+
+
+'''''''''''''''''
+'' Use Cases
+
+' For admins
+(Manage catalog) as manage_catalog_item #MidnightBlue
+(Manage inventory) as manage_store_item #MidnightBlue
+(Cancel order) as cancel_order #MidnightBlue
+(Delete account) as delete_account #MidnightBlue
+
+' For members
+(Manage cart) as manage_cart #Green
+(Check out) as check_out #Green
+(Submit payment) as submit_payment #Green
+(Get order history) as get_order_history #Green
+(Login/logout) as login_and_logout #Green
+(Update account) as update_account #Green
+
+' For guests
+(View catalog) as view_catalog #DarkOrange
+(View item) as view_item #DarkOrange
+(Register account) as register_account #DarkOrange
+
+' For system
+(Send order notification) as send_order_notification #DimGrey
+(Send shipment notification) as send_shipment_notification #DimGrey
+
+
+'''''''''''''''''''''
+'' Relationships
+
+admin --|> member #MidnightBlue
+member --|> guest #Green
+
+admin --> manage_catalog_item #MidnightBlue
+admin --> manage_store_item #MidnightBlue
+admin --> cancel_order #MidnightBlue
+admin --> delete_account #MidnightBlue
+
+member --> manage_cart #Green
+member --> check_out #Green
+check_out ..|> submit_payment #Green;text:Green : << include >>
+member --> get_order_history #Green
+member --> login_and_logout #Green
+member --> update_account #Green
+
+guest --> view_catalog #DarkOrange
+guest --> view_item #DarkOrange
+guest --> register_account #DarkOrange
+
+system --> send_order_notification #DimGrey
+system --> send_shipment_notification #DimGrey
+
+@enduml

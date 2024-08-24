@@ -1,0 +1,48 @@
+@startuml activity-member
+!theme cerulean
+
+title Activity Diagram (Member)
+
+
+start
+
+:Log in;
+
+repeat
+    switch ()
+    case ()
+        repeat
+            :Browse catalog;
+            :View item details;
+            :Add item to cart;
+        repeat while
+    case ()
+        :View account;
+        repeat
+            switch ()
+            case ()
+                :Get order history;
+            case ()
+                :Update account;
+            endswitch
+        repeat while
+    case ()
+        :Check out;
+        repeat
+            switch ()
+            case ()
+                :Update/remove items;
+            case ()
+                :Submit payment;
+                :Send notification;
+            endswitch
+        repeat while
+    endswitch
+    label end
+repeat while
+
+:Log out;
+
+stop
+
+@enduml

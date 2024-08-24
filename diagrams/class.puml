@@ -1,0 +1,135 @@
+@startuml class
+!theme cerulean
+
+title Class Diagram
+
+
+class ProductCatalog {
+   +List<Product> : Products
+
+   +void AddProduct(Product product)
+   +void RemoveProduct(Product product)
+}
+
+class Product {
+   +string : Id
+   +string : Name
+   +string : Description
+   +decimal : Price
+   +int : Quantity
+   +List<ProductItem> : Items
+
+   +void AddItem(ProductItem item)
+   +void RemoveItem(ProductItem item)
+}
+
+class ProductItem {
+   +string : Id
+   +string : Upc
+   +DateTime : Expiration
+   +Product : Product
+}
+
+class Order {
+    +string : Id
+    +string : OrderNumber
+    +DateTime : OrderDate
+    +decimal : TotalAmount
+    +List<ProductItem> : Items
+    +OrderStatus : Status
+
+    +void Cancel()
+}
+
+enum OrderStatus {
+    Ordered
+    Shipped
+    Delivered
+    Canceled
+}
+
+class Cart {
+    +Member : User
+    +List<CartItem> : Items
+
+    +void AddItem(CartItem item)
+    +void RemoveItem(CartItem item)
+}
+
+class CartItem {
+    +string : Id
+    +Product : Product
+    +int : Quantity
+}
+
+class Account {
+    +string : Id
+    +string : Name
+    +string : Email
+    +string : HashedPassword
+    +Address : ShippingAddress
+    +Address : BillingAddress
+    +PaymentCard : PaymentCard
+    +AccountType : AccountType
+    +List<Order> : PastOrders
+
+    +void HashPassword(string password)
+    +void Register()
+    +void Checkout(Cart cart)
+    -void SubmitPayment()
+    +void Login()
+    +void Logout()
+    +void Delete()
+}
+
+enum AccountType {
+    Admin
+    Member
+    Guest
+}
+
+class Address {
+    +string : Name
+    +string : Address1
+    +string : Address2
+    +string : City
+    +string : State
+    +string : Zip
+}
+
+class PaymentCard {
+    +string : CardNumber
+    +DateTime : ExpirationDate
+    +string : Name
+    +string : SecurityCode
+}
+
+class Notification {
+    +string : Id
+    +NotificationType : Type
+    +Order : Order
+    +Account : Recipient
+
+    +void Send()
+}
+
+enum NotificationType {
+    Ordered
+    Shipped
+}
+
+ProductCatalog o-- Product
+Product *-- ProductItem
+Cart *-- CartItem
+CartItem --> Product
+Account --> Address
+Account --> AccountType
+Account --> PaymentCard
+Account o-- Order
+Account ..> Cart
+Order o-- ProductItem
+Order --> OrderStatus
+Account ..> Notification
+Notification --> NotificationType
+
+@enduml

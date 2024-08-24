@@ -21,7 +21,8 @@
                 "ms-azuretools.vscode-bicep",
                 "ms-vscode.vscode-node-azure-pack",
                 "ms-python.python",
-                "ms-azuretools.vscode-azurefunctions"
+                "ms-azuretools.vscode-azurefunctions",
+                "jebbs.plantuml"
             ]
         }
     },
