@@ -1,5 +1,5 @@
 {
-    "name": "FastAPI on Azure Functions",
+    "name": "Candy Store API",
     "build": {
         "dockerfile": "Dockerfile",
         "args": {
