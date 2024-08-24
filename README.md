@@ -1,21 +1,6 @@
----
-page_type: sample
-languages:
-- azdeveloper
-- python
-- bicep
-products:
-- azure
-- azure-functions
-urlFragment: fastapi-on-azure-functions
-name: Using FastAPI Framework with Azure Functions
-description: This is a sample Azure Function app created with the FastAPI framework.
----
-<!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
+# Candy Store API
 
-# Using FastAPI Framework with Azure Functions
-
-Azure Functions supports WSGI and ASGI-compatible frameworks with HTTP-triggered Python functions. This can be helpful if you are familiar with a particular framework, or if you have existing code you would like to reuse to create the Function app. The following is an example of creating an Azure Function app using FastAPI.
+Azure Functions supports WSGI and ASGI-compatible frameworks with HTTP-triggered Python functions. This can be helpful if you are familiar with a particular framework, or if you have existing code you would like to reuse to create the Function app. The following is an example of creating an Azure Function app using FastAPI for a candy store API.
 
 ## Prerequisites
 
@@ -26,11 +11,11 @@ You can develop and deploy a function app using either Visual Studio Code or the
 
 ## Setup
 
-Clone or download [this sample's repository](https://github.com/Azure-Samples/fastapi-on-azure-functions/), and open the `fastapi-on-azure-functions` folder in Visual Studio Code or your preferred editor (if you're using the Azure CLI).
+Clone or download [this sample's repository](https://github.com/bijancamp/candy-store-api/), and open the `candy-store-api` folder in Visual Studio Code or your preferred editor (if you're using the Azure CLI).
 
-## Using FastAPI Framework in an Azure Function App
+## Using FastAPI Framework in an Azure Function App for a Candy Store API
 
-The code in the sample folder has already been updated to support use of the FastAPI. Let's walk through the changed files.
+The code in the sample folder implements an API for a candy store via FastAPI. Let's walk through the files.
 
 The `requirements.txt` file has an additional dependency of the `fastapi` module:
 
@@ -64,28 +49,7 @@ from WrapperFunction import app as fastapi_app
 app = func.AsgiFunctionApp(app=fastapi_app, http_auth_level=func.AuthLevel.ANONYMOUS)
 ```
 
-In the `WrapperFunction` folder, the `__init__.py` file defines a FastAPI app in the typical way (no changes needed):
-
-```python
-import azure.functions as func
-
-import fastapi
-
-app = fastapi.FastAPI()
-
-@app.get("/sample")
-async def index():
-    return {
-        "info": "Try /hello/Shivani for parameterized route.",
-    }
-
-
-@app.get("/hello/{name}")
-async def get_name(name: str):
-    return {
-        "name": name,
-    }
-```
+In the `WrapperFunction` folder, the `__init__.py` file defines a FastAPI app for a candy store API.
 
 ## Running the sample
 
@@ -157,6 +121,6 @@ You can call the URL endpoints using your browser (GET requests) or one one of t
 
 ## Next Steps
 
-Now you have a simple Azure Function App using the FastAPI framework, and you can continue building on it to develop more sophisticated applications.
+Now you have a simple Azure Function App for a candy store API that uses the FastAPI framework, and you can continue building on it to develop more sophisticated applications.
 
 To learn more about leveraging WSGI and ASGI-compatible frameworks, see [Web frameworks](https://docs.microsoft.com/azure/azure-functions/functions-reference-python?tabs=asgi%2Cazurecli-linux%2Capplication-level#web-frameworks).
