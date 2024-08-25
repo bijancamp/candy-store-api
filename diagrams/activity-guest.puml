@@ -1,6 +1,8 @@
 @startuml activity-guest
 !theme cerulean
 
+skinparam backgroundColor White
+
 title Activity Diagram (Guest)
 
 

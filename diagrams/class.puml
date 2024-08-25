@@ -1,6 +1,8 @@
 @startuml class
 !theme cerulean
 
+skinparam backgroundColor White
+
 title Class Diagram
 
 

@@ -1,6 +1,8 @@
 @startuml activity-admin
 !theme cerulean
 
+skinparam backgroundColor White
+
 title Activity Diagram (Admin)
 
 

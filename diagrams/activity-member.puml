@@ -1,6 +1,8 @@
 @startuml activity-member
 !theme cerulean
 
+skinparam backgroundColor White
+
 title Activity Diagram (Member)
 
 

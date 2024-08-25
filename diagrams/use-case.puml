@@ -2,6 +2,7 @@
 !theme cerulean
 
 skinparam actorStyle hollow
+skinparam backgroundColor White
 
 title Use Case Diagram
 
