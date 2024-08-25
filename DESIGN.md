@@ -17,8 +17,18 @@ The system will have the following requirements:
 13. Guests can register account to become a member.
 
 ## Use Case Diagram
-There are four actors in the system:
-1. Admin
-2. Member
-3. Guest
-4. System
+![Use Case Diagram](/diagrams/use-case.svg)
+
+## Class Diagram
+![Class Diagram](/diagrams/class.svg)
+
+## Activity Diagrams
+
+### Admin Flow
+![Class Diagram](/diagrams/activity-admin.svg)
+
+### Member Flow
+![Class Diagram](/diagrams/activity-member.svg)
+
+### Guest Flow
+![Class Diagram](/diagrams/activity-guest.svg)
