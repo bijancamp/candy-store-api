@@ -12,6 +12,11 @@ app = fastapi.FastAPI()
 
 # In-memory instance of ProductCatalog for demo purposes
 catalog = ProductCatalog()
+catalog.add_product(Product(name="Candy Cane", description="A classic peppermint candy cane", price="1.99"))
+catalog.add_product(Product(name="Lollipop", description="A sweet lollipop", price="0.99"))
+catalog.add_product(Product(name="Gummy Bears", description="A bag of gummy bears", price="3.99"))
+catalog.add_product(Product(name="Bubble Gum", description="Chewy bubble gum", price="0.50"))
+catalog.add_product(Product(name="Jelly Beans", description="Assorted jelly beans", price="2.50"))
 
 
 @app.get("/products", response_model=list[ProductResponse])
