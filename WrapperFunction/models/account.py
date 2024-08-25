@@ -1,12 +1,8 @@
-from decimal import Decimal
-
 from pydantic import BaseModel
-
-from ..classes.order import OrderStatus
 
 
 class AccountCheckoutBase(BaseModel):
-    status: OrderStatus
+    status: str
 
 class AccountCheckoutResponse(AccountCheckoutBase):
     pass

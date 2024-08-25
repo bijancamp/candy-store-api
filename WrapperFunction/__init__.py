@@ -1,6 +1,10 @@
+import datetime
 import fastapi
 
+from .classes.account import Account
+from .classes.payment_card import PaymentCard
 from .classes.product import ProductCatalog, Product
+from .models.account import AccountCheckoutResponse
 from .models.product import ProductResponse, ProductCreate
 
 
@@ -37,4 +41,26 @@ def add_product(product_data: ProductCreate):
         name=new_product.name,
         description=new_product.description,
         price=new_product.price
+    )
+
+@app.post("/account/{account_id}/checkout", response_model=AccountCheckoutResponse)
+def checkout():
+    card = PaymentCard(
+        '0123456789012345',
+        datetime.date(2026, 1, 1),
+        'Willy Wonka',
+        '123'
+    )
+
+    account = Account(
+        name="Willy Wonka",
+        email="wonka@wonkaindustries.com",
+        account_type="MEMBER",
+        payment_card=card
+    )
+
+    status = account.checkout()
+
+    return AccountCheckoutResponse(
+        status=status
     )

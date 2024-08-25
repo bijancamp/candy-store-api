@@ -4,12 +4,6 @@ from enum import Enum
 
 import bcrypt
 
-from account import AccountType
-from address import Address
-from cart import Cart
-from order import Order, OrderStatus
-from payment_card import PaymentCard
-
 
 class AccountType(Enum):
     ADMIN = 1
@@ -18,7 +12,7 @@ class AccountType(Enum):
 
 
 class Account:
-    def __init__(self, name: str, email: str, shipping_address: Address, billing_address: Address, payment_card: PaymentCard, account_type: AccountType, past_orders: list[Order]) -> None:
+    def __init__(self, name: str, email: str, shipping_address=None, billing_address=None, payment_card=None, account_type='GUEST', past_orders=None) -> None:
         self.id = str(uuid.uuid4())
         self.name = name
         self.email = email
@@ -37,13 +31,13 @@ class Account:
 
         # Continue registration process...
 
-    def checkout(self, cart: Cart) -> None:
+    def checkout(self) -> None:
         if not self.payment_card:
             raise ValueError("No linked payment card")
 
         # Eventually call _submitPayment...
 
-        return OrderStatus.SHIPPED
+        return "SHIPPED"
 
     def _submitPayment(self) -> None:
         pass
